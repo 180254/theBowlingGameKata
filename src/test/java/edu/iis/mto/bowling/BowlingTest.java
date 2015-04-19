@@ -44,11 +44,11 @@ public class BowlingTest {
 
 	@Test
 	public void oneStrike_scoreShouldTakeItIntoAccount() {
-		game.roll(10); // strike
+		rollStrike();
 		game.roll(3);
 		game.roll(4);
 		rollMany(16, 0);
-		
+
 		assertThat(game.score(), is(24));
 	}
 
@@ -60,6 +60,10 @@ public class BowlingTest {
 	private void rollSpare() {
 		game.roll(5);
 		game.roll(5);
+	}
+
+	private void rollStrike() {
+		game.roll(10);
 	}
 
 }
