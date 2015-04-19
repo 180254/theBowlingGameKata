@@ -42,6 +42,16 @@ public class BowlingTest {
 		assertThat(game.score(), is(16));
 	}
 
+	@Test
+	public void oneStrike_scoreShouldTakeItIntoAccount() {
+		game.roll(10); // strike
+		game.roll(3);
+		game.roll(4);
+		rollMany(16, 0);
+		
+		assertThat(game.score(), is(24));
+	}
+
 	private void rollMany(int n, int pins) {
 		for (int i = 0; i < n; i++)
 			game.roll(pins);
