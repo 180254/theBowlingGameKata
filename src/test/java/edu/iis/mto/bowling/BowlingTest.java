@@ -24,13 +24,13 @@ public class BowlingTest {
 	@Test
 	public void gutterGame_scoreShouldBeEquals0() {
 		rollMany(20, 0);
-		assertThat(game.score(), is(0));
+		assertThat(score(), is(0));
 	}
 
 	@Test
 	public void allOnes_scoreShouldEquals20() {
 		rollMany(20, 1);
-		assertThat(game.score(), is(20));
+		assertThat(score(), is(20));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class BowlingTest {
 		game.roll(3);
 		rollMany(17, 0);
 
-		assertThat(game.score(), is(16));
+		assertThat(score(), is(16));
 	}
 
 	@Test
@@ -49,13 +49,17 @@ public class BowlingTest {
 		game.roll(4);
 		rollMany(16, 0);
 
-		assertThat(game.score(), is(24));
+		assertThat(score(), is(24));
 	}
 
 	@Test
 	public void perfectGame_scoreShouldEquals300() {
 		rollMany(12, 10);
-		assertThat(game.score(), is(300));
+		assertThat(score(), is(300));
+	}
+
+	private int score() {
+		return game.score();
 	}
 
 	private void rollMany(int n, int pins) {
