@@ -52,6 +52,12 @@ public class BowlingTest {
 		assertThat(game.score(), is(24));
 	}
 
+	@Test
+	public void perfectGame_scoreShouldEquals300() {
+		rollMany(12, 10);
+		assertThat(game.score(), is(300));
+	}
+
 	private void rollMany(int n, int pins) {
 		for (int i = 0; i < n; i++)
 			game.roll(pins);
