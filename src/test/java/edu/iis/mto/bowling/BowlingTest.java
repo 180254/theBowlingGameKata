@@ -12,4 +12,12 @@ public class BowlingTest {
 		assertThat(true, equalTo(true));
 	}
 
+	@Test
+	public void gutterGame_scoreShouldBeEqual0() {
+		Bowling b = new Bowling();
+		for (int i = 0; i < 20; i++)
+			b.roll(0);
+		assertEquals(0, b.score());
+	}
+
 }
